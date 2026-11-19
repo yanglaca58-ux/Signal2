@@ -1,0 +1,1063 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Oscar Akello's Computer Science portfolio.">
+  <title>Oscar Akello | Computer Science Portfolio</title>
+
+  <style>
+    :root {
+      --navy: #102d4d;
+      --blue: #1e5b83;
+      --teal: #168c9b;
+      --ink: #203247;
+      --muted: #617286;
+      --page: #f3f7fb;
+      --card: #ffffff;
+      --line: #dce6ef;
+      --soft: #eaf5f8;
+      --shadow: 0 12px 32px rgba(20,48,75,.09);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.65;
+      color: var(--ink);
+      background: var(--page);
+      transition: background .25s, color .25s;
+    }
+
+    a {
+      color: var(--teal);
+    }
+
+    /* Navigation */
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(13,37,62,.96);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px max(20px, calc((100% - 1120px)/2));
+      gap: 16px;
+    }
+
+    .brand {
+      color: white;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 4px;
+    }
+
+    nav a {
+      color: #eaf5fb;
+      text-decoration: none;
+      padding: 7px 10px;
+      border-radius: 7px;
+      font-size: .9rem;
+    }
+
+    nav a:hover,
+    nav a:focus {
+      background: #245777;
+      color: white;
+    }
+
+    #theme-toggle {
+      border: 1px solid rgba(255,255,255,.35);
+      background: transparent;
+      color: white;
+      border-radius: 22px;
+      padding: 7px 12px;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    /* Welcome section */
+
+    .hero {
+      color: white;
+      background:
+        radial-gradient(circle at 85% 20%, #277d91 0, transparent 30%),
+        linear-gradient(125deg, #0b223b, #174d70 62%, #168c9b);
+      padding: 86px 22px 78px;
+    }
+
+    .hero-inner {
+      max-width: 1120px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1.5fr .8fr;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      color: #9ce0e2;
+      font-size: .78rem;
+      font-weight: 800;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 6vw, 4.8rem);
+      line-height: 1.08;
+      margin: 12px 0 18px;
+      letter-spacing: -.04em;
+      animation: appear 1.2s ease-out both;
+    }
+
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: translateY(-18px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero p {
+      max-width: 680px;
+      color: #e0edf5;
+      font-size: 1.12rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 26px;
+    }
+
+    .button {
+      display: inline-block;
+      text-decoration: none;
+      border: 0;
+      border-radius: 9px;
+      padding: 11px 17px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .button-primary {
+      background: white;
+      color: #123c59;
+    }
+
+    .button-outline {
+      border: 1px solid rgba(255,255,255,.6);
+      color: white;
+      background: transparent;
+    }
+
+    .hero-mark {
+      border: 1px solid rgba(255,255,255,.25);
+      background: rgba(255,255,255,.09);
+      border-radius: 22px;
+      padding: 28px;
+      text-align: center;
+    }
+
+    .hero-mark .cap {
+      font-size: 4rem;
+    }
+
+    .hero-mark strong {
+      display: block;
+      font-size: 1.15rem;
+    }
+
+    .hero-mark span {
+      color: #c7e5ec;
+      font-size: .92rem;
+    }
+
+    .greeting {
+      max-width: 1120px;
+      margin: 18px auto 0;
+      padding: 0 22px;
+      color: var(--muted);
+      font-size: .93rem;
+    }
+
+    main {
+      max-width: 1120px;
+      padding: 0 22px 55px;
+      margin: 0 auto;
+    }
+
+    section {
+      scroll-margin-top: 82px;
+    }
+
+    /* Content cards */
+
+    .section {
+      margin-top: 28px;
+      padding: 30px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 17px;
+      box-shadow: var(--shadow);
+    }
+
+    .section-heading {
+      margin: 0 0 8px;
+      color: var(--navy);
+      font-size: 1.75rem;
+      line-height: 1.25;
+    }
+
+    .section-intro {
+      color: var(--muted);
+      margin: 0 0 22px;
+    }
+
+    /* Graduation */
+
+    .grad-box {
+      border-left: 5px solid var(--teal);
+      border-radius: 12px;
+      padding: 22px;
+      background: linear-gradient(120deg, var(--soft), transparent);
+    }
+
+    .grad-box h3 {
+      margin: 0 0 8px;
+      color: var(--navy);
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .tag {
+      background: var(--soft);
+      color: #176477;
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: .83rem;
+      font-weight: 700;
+    }
+
+    /* Skills and projects */
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+
+    .tile {
+      border: 1px solid var(--line);
+      background: var(--card);
+      border-radius: 13px;
+      padding: 18px;
+    }
+
+    .tile h3 {
+      margin: 0 0 7px;
+      color: var(--navy);
+      font-size: 1.05rem;
+    }
+
+    .tile p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .94rem;
+    }
+
+    .project {
+      display: flex;
+      flex-direction: column;
+      min-height: 190px;
+    }
+
+    .project .tag-row {
+      margin-top: auto;
+      padding-top: 14px;
+    }
+
+    .project-label {
+      color: var(--teal);
+      text-transform: uppercase;
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .1em;
+    }
+
+    /* Experience */
+
+    .experience-line {
+      border-left: 3px solid var(--teal);
+      padding: 2px 0 2px 20px;
+      margin: 18px 0;
+    }
+
+    .experience-line h3 {
+      margin: 0;
+      color: var(--navy);
+    }
+
+    .experience-line p {
+      margin: 5px 0 0;
+      color: var(--muted);
+    }
+
+    /* Interactive interests */
+
+    #interest-list {
+      list-style: none;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    #interest-list li {
+      border: 1px solid var(--line);
+      background: var(--page);
+      border-radius: 9px;
+      padding: 11px 14px;
+      cursor: pointer;
+      transition: .18s;
+    }
+
+    #interest-list li:hover {
+      border-color: var(--teal);
+      transform: translateY(-2px);
+    }
+
+    #interest-list li.selected {
+      background: var(--soft);
+      border-color: var(--teal);
+      font-weight: 700;
+    }
+
+    #interest-count {
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    /* Career goal tracker */
+
+    .goal-tools {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 14px;
+    }
+
+    .goal-tools input {
+      flex: 1;
+      min-width: 200px;
+      padding: 11px 13px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      font: inherit;
+      background: var(--card);
+      color: var(--ink);
+    }
+
+    .goal-tools button {
+      background: var(--teal);
+      color: white;
+      border: 0;
+      border-radius: 8px;
+      padding: 10px 16px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    #goal-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    #goal-list li {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 9px 12px;
+      margin-top: 7px;
+      border-radius: 8px;
+      background: var(--page);
+    }
+
+    #goal-list button {
+      border: 0;
+      background: transparent;
+      color: #c34b4b;
+      cursor: pointer;
+    }
+
+    /* Contact */
+
+    .contact-panel {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      background: linear-gradient(120deg, #102d4d, #17647b);
+      color: white;
+      border-radius: 13px;
+      padding: 22px;
+    }
+
+    .contact-panel h3 {
+      margin: 0 0 5px;
+    }
+
+    .contact-panel p {
+      margin: 0;
+      color: #d9eaf2;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      padding: 25px 15px 35px;
+      font-size: .9rem;
+    }
+
+    /* Dark mode */
+
+    body.dark-mode {
+      --ink: #e1edf6;
+      --muted: #b1c3d2;
+      --page: #101d2a;
+      --card: #172b3d;
+      --line: #2b455a;
+      --soft: #1e3e50;
+      --navy: #9bd8e2;
+      --shadow: 0 12px 32px rgba(0,0,0,.2);
+    }
+
+    body.dark-mode .tile,
+    body.dark-mode .section {
+      background: var(--card);
+    }
+
+    body.dark-mode .section-heading,
+    body.dark-mode .tile h3,
+    body.dark-mode .grad-box h3,
+    body.dark-mode .experience-line h3 {
+      color: #9bd8e2;
+    }
+
+    body.dark-mode #interest-list li,
+    body.dark-mode #goal-list li {
+      background: #1d3447;
+    }
+
+    body.dark-mode .tag {
+      color: #a9e4e5;
+    }
+
+    /* Responsive layout */
+
+    @media (max-width: 850px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-mark {
+        max-width: 320px;
+      }
+
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 650px) {
+      .topbar {
+        position: static;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      nav {
+        order: 3;
+        justify-content: center;
+      }
+
+      nav a {
+        font-size: .82rem;
+        padding: 6px;
+      }
+
+      .hero {
+        padding: 55px 18px;
+      }
+
+      .hero-inner {
+        gap: 24px;
+      }
+
+      main {
+        padding: 0 13px 35px;
+      }
+
+      .section {
+        padding: 21px;
+      }
+
+      .grid,
+      #interest-list {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Print / Save as PDF */
+
+    @media print {
+      .topbar,
+      .hero-actions,
+      #theme-toggle,
+      .goal-tools,
+      #interest-count,
+      footer {
+        display: none !important;
+      }
+
+      body {
+        background: white;
+        color: #222;
+      }
+
+      .hero {
+        background: white;
+        color: #222;
+        padding: 25px 0;
+      }
+
+      .hero p,
+      .hero-mark span {
+        color: #444;
+      }
+
+      .hero-mark {
+        color: #222;
+        border-color: #ccc;
+      }
+
+      .section {
+        box-shadow: none;
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <div class="topbar">
+    <a class="brand" href="#home">OSCAR AKELLO</a>
+
+    <nav aria-label="Main navigation">
+      <a href="#about">About</a>
+      <a href="#graduation">Graduation</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <button id="theme-toggle" type="button"
+      onclick="toggleDarkMode()">🌙 Dark mode</button>
+  </div>
+
+  <!-- Welcome section -->
+  <header class="hero" id="home">
+    <div class="hero-inner">
+
+      <div>
+        <div class="eyebrow">A new chapter begins</div>
+
+        <h1>Hello, I'm<br>Oscar Akello.</h1>
+
+        <p>
+          Computer Science graduate, problem-solver, and lifelong learner.
+          I'm excited to put technology to work, build useful solutions,
+          and keep growing throughout my career.
+        </p>
+
+        <div class="hero-actions">
+          <a class="button button-primary" href="#projects">
+            Explore my projects
+          </a>
+
+          <a class="button button-outline" href="#contact">
+            Get in touch
+          </a>
+
+          <button class="button button-outline"
+            type="button" onclick="window.print()">
+            Print / Save as PDF
+          </button>
+        </div>
+      </div>
+
+      <div class="hero-mark">
+        <div class="cap">🎓</div>
+        <strong>University of Houston-Downtown</strong>
+        <span>Celebrating four years of dedication and achievement</span>
+      </div>
+
+    </div>
+  </header>
+
+  <div class="greeting" id="greeting-box" aria-live="polite"></div>
+
+  <main>
+
+    <!-- About Me -->
+    <section class="section" id="about">
+      <h2 class="section-heading">About Me</h2>
+
+      <p>
+        Welcome to my personal portfolio. I have a background in
+        transportation and logistics and a strong interest in how
+        technology can improve the way people and businesses work.
+        My Computer Science education has strengthened my interest
+        in software, problem-solving, and continuous learning.
+      </p>
+
+      <p>
+        I'm looking forward to using my knowledge in Computer Science
+        to advance my career, contribute to meaningful projects,
+        and take on new challenges in the technology field.
+      </p>
+    </section>
+
+    <!-- Graduation -->
+    <section class="section" id="graduation">
+      <h2 class="section-heading">Celebrating My Graduation</h2>
+
+      <p class="section-intro">
+        Four years of commitment, learning, challenges, and growth.
+      </p>
+
+      <div class="grad-box">
+        <h3>🎓 A proud University of Houston-Downtown graduate!</h3>
+
+        <p>
+          I'm proud to celebrate this important milestone after four
+          years at the University of Houston-Downtown. This achievement
+          represents hard work, perseverance, and the support and
+          lessons that shaped my journey.
+        </p>
+
+        <p>
+          As I move into the next chapter, I look forward to applying
+          my Computer Science knowledge to solve real-world problems,
+          develop my technical abilities, and advance my professional career.
+        </p>
+
+        <div class="tag-row">
+          <span class="tag">UHD graduate</span>
+          <span class="tag">Four-year journey</span>
+          <span class="tag">New career chapter</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technical Skills -->
+    <section class="section" id="skills">
+      <h2 class="section-heading">Technical Skills & Learning</h2>
+
+      <p class="section-intro">
+        A snapshot of areas I've worked with through coursework
+        and personal projects. This section can grow as I gain
+        more experience.
+      </p>
+
+      <div class="grid">
+
+        <article class="tile">
+          <h3>Web Development</h3>
+          <p>
+            HTML, CSS, JavaScript, responsive page layouts,
+            and interactive website features.
+          </p>
+        </article>
+
+        <article class="tile">
+          <h3>Programming</h3>
+          <p>
+            Programming fundamentals, logical thinking,
+            debugging, and building solutions step by step.
+          </p>
+        </article>
+
+        <article class="tile">
+          <h3>Machine Learning</h3>
+          <p>
+            Coursework involving neural networks,
+            classification concepts, and model behavior.
+          </p>
+        </article>
+
+        <article class="tile">
+          <h3>Data & Analysis</h3>
+          <p>
+            Working with datasets, organizing information,
+            and interpreting results.
+          </p>
+        </article>
+
+        <article class="tile">
+          <h3>Problem Solving</h3>
+          <p>
+            Breaking down complex tasks, evaluating options,
+            and improving processes.
+          </p>
+        </article>
+
+        <article class="tile">
+          <h3>Professional Strengths</h3>
+          <p>
+            Communication, coordination, adaptability,
+            teamwork, and operational awareness.
+          </p>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="section" id="projects">
+      <h2 class="section-heading">Projects & Practical Work</h2>
+
+      <p class="section-intro">
+        A selection of work and concepts that reflect my learning
+        and interests.
+      </p>
+
+      <div class="grid">
+
+        <article class="tile project">
+          <div class="project-label">Web development</div>
+          <h3>Personal Portfolio Website</h3>
+          <p>
+            A responsive personal website built with HTML, CSS,
+            and JavaScript, including interactive features
+            and a dark-mode option.
+          </p>
+
+          <div class="tag-row">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+          </div>
+        </article>
+
+        <article class="tile project">
+          <div class="project-label">Machine learning coursework</div>
+          <h3>Neural Network Exercises</h3>
+          <p>
+            Academic exercises exploring neural network structures,
+            activation functions, sequence inputs, and
+            classification concepts.
+          </p>
+
+          <div class="tag-row">
+            <span class="tag">Machine learning</span>
+            <span class="tag">Neural networks</span>
+          </div>
+        </article>
+
+        <article class="tile project">
+          <div class="project-label">Technology concept</div>
+          <h3>TWICLINK</h3>
+          <p>
+            A port-access coordination platform concept intended
+            to connect non-TWIC holders with approved third-party
+            escort providers while supporting existing terminal
+            security procedures.
+          </p>
+
+          <div class="tag-row">
+            <span class="tag">Product concept</span>
+            <span class="tag">Logistics technology</span>
+          </div>
+        </article>
+
+      </div>
+
+      <p class="section-intro" style="margin-top:18px;margin-bottom:0">
+        As I complete more projects, I'll add demonstrations,
+        screenshots, source-code links, and details about
+        the technologies used.
+      </p>
+    </section>
+
+    <!-- Professional Experience -->
+    <section class="section" id="experience">
+      <h2 class="section-heading">Professional Experience</h2>
+
+      <p class="section-intro">
+        Bringing together operational experience and a growing
+        foundation in technology.
+      </p>
+
+      <div class="experience-line">
+        <h3>Transportation & Logistics Operations</h3>
+
+        <p>
+          Experience coordinating daily dispatch activities,
+          driver schedules, freight movement, customer communication,
+          and time-sensitive operations. This background has helped
+          me develop organization, communication, and practical
+          problem-solving skills.
+        </p>
+      </div>
+
+      <div class="experience-line">
+        <h3>Computer Science Education</h3>
+
+        <p>
+          University of Houston-Downtown — completed a four-year
+          academic journey focused on developing technical knowledge,
+          analytical thinking, and the ability to approach
+          problems systematically.
+        </p>
+      </div>
+    </section>
+
+    <!-- Interests -->
+    <section class="section" id="interests">
+      <h2 class="section-heading">My Interests</h2>
+
+      <p class="section-intro">
+        Select the topics that interest you to highlight them.
+      </p>
+
+      <ul id="interest-list">
+        <li onclick="selectInterest(this)">
+          Technology and computer science
+        </li>
+
+        <li onclick="selectInterest(this)">
+          Software and web development
+        </li>
+
+        <li onclick="selectInterest(this)">
+          Machine learning and data
+        </li>
+
+        <li onclick="selectInterest(this)">
+          Transportation and logistics innovation
+        </li>
+
+        <li onclick="selectInterest(this)">
+          Learning new tools and technologies
+        </li>
+
+        <li onclick="selectInterest(this)">
+          Solving real-world problems
+        </li>
+      </ul>
+
+      <p id="interest-count" aria-live="polite">
+        Choose an interest to highlight it.
+      </p>
+    </section>
+
+    <!-- Career Goals -->
+    <section class="section" id="goals">
+      <h2 class="section-heading">Career Goals</h2>
+
+      <p>
+        My next goal is to apply what I've learned, continue
+        developing practical technical skills, and pursue
+        opportunities where I can combine analytical thinking,
+        technology, and my professional experience.
+        I'm committed to staying curious, learning continuously,
+        and making a positive contribution wherever I work.
+      </p>
+
+      <h3>My personal goal tracker</h3>
+
+      <p class="section-intro">
+        Add goals you'd like to work toward. They stay in this
+        page while it is open.
+      </p>
+
+      <div class="goal-tools">
+        <input
+          type="text"
+          id="goal-input"
+          placeholder="For example: Build and publish a new project"
+          aria-label="New career goal"
+        >
+
+        <button type="button" onclick="addGoal()">
+          Add goal
+        </button>
+      </div>
+
+      <ul id="goal-list"></ul>
+    </section>
+
+    <!-- Contact -->
+    <section class="section" id="contact">
+      <h2 class="section-heading">Let's Connect</h2>
+
+      <div class="contact-panel">
+        <div>
+          <h3>Thank you for visiting my portfolio.</h3>
+
+          <p>
+            I'm looking forward to new opportunities,
+            collaborations, and the next step in my career.
+          </p>
+        </div>
+
+        <button class="button button-primary"
+          type="button" onclick="window.print()">
+          Print / Save portfolio as PDF
+        </button>
+      </div>
+
+      <p class="section-intro" style="margin:15px 0 0">
+        Add your professional email, LinkedIn profile,
+        and GitHub profile here when you're ready to publish your site.
+      </p>
+    </section>
+
+  </main>
+
+  <footer>
+    © <span id="year"></span> Oscar Akello ·
+    Personal Computer Science Portfolio
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+
+    // Display a greeting based on the time of day
+    function showGreeting() {
+      const hour = new Date().getHours();
+      let greeting;
+
+      if (hour >= 5 && hour < 12) {
+        greeting = 'Good morning! Thanks for visiting my portfolio.';
+      }
+      else if (hour >= 12 && hour < 17) {
+        greeting = 'Good afternoon! Thanks for stopping by.';
+      }
+      else if (hour >= 17 && hour < 21) {
+        greeting = 'Good evening! Welcome to my portfolio.';
+      }
+      else {
+        greeting = 'Hello! Welcome to my portfolio.';
+      }
+
+      document.getElementById('greeting-box').textContent = greeting;
+    }
+
+    // Switch between dark mode and light mode
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+
+      const isDark =
+        document.body.classList.contains('dark-mode');
+
+      document.getElementById('theme-toggle').textContent =
+        isDark ? '☀️ Light mode' : '🌙 Dark mode';
+    }
+
+    // Allow visitors to select interests
+    function selectInterest(item) {
+      item.classList.toggle('selected');
+
+      const count =
+        document.querySelectorAll('#interest-list li.selected').length;
+
+      document.getElementById('interest-count').textContent =
+        count === 0
+          ? 'Choose an interest to highlight it.'
+          : `You highlighted ${count} interest${count === 1 ? '' : 's'}.`;
+    }
+
+    // Add a new career goal
+    function addGoal() {
+      const input = document.getElementById('goal-input');
+      const value = input.value.trim();
+
+      if (!value) {
+        input.focus();
+        return;
+      }
+
+      const li = document.createElement('li');
+      const label = document.createElement('span');
+      const remove = document.createElement('button');
+
+      label.textContent = value;
+
+      remove.type = 'button';
+      remove.textContent = 'Remove';
+      remove.setAttribute('aria-label', 'Remove goal');
+
+      remove.addEventListener('click', () => li.remove());
+
+      li.append(label, remove);
+
+      document.getElementById('goal-list').appendChild(li);
+
+      input.value = '';
+      input.focus();
+    }
+
+    // Add goals when the Enter key is pressed
+    document.getElementById('goal-input')
+      .addEventListener('keydown', event => {
+        if (event.key === 'Enter') {
+          addGoal();
+        }
+      });
+
+    // Automatically update the copyright year
+    document.getElementById('year').textContent =
+      new Date().getFullYear();
+
+    // Display greeting when website loads
+    showGreeting();
+
+  </script>
+
+</body>
+</html>
